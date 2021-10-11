@@ -1,23 +1,44 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+import Home from './Components/Home/Home/Home';
+import Services from './Components/Home/Services/Services';
+import FeaturedService from "./Components/Home/FeaturedService/FeaturedService";
+import MakeAppointment from "./Components/Home/MakeAppointment/MakeAppointment";
+import Testimonials from "./Components/Home/Testimonials/Testimonials";
+import Blog from "./Components/Home/Blog/Blog";
+import Doctors from "./Components/Home/Doctors/Doctors";
+import Contract from "./Components/Home/Contract/Contract";
+import Footer from "./Components/Home/Footer/Footer";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='App'>
+      <Router>
+        <Switch>
+
+          <Route path="/">
+            <Home></Home>
+            <Services></Services>
+            <FeaturedService></FeaturedService>
+            <MakeAppointment></MakeAppointment>
+            <Testimonials></Testimonials>
+            <Blog></Blog>
+            <Doctors></Doctors>
+            <Contract></Contract>
+            <Footer></Footer>
+          </Route>
+
+
+        </Switch>
+
+      </Router>
     </div>
   );
 }
