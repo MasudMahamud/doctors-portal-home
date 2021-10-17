@@ -1,32 +1,16 @@
-import React from 'react';
-import doctorImage1 from '../../../images/doctors/doctor1.png'; 
-import doctorImage2 from '../../../images/doctors/doctor2.png'; 
-import doctorImage3 from '../../../images/doctors/doctor3.png'; 
+import React, { useEffect, useState } from 'react';
 import DoctorsDetails from '../DoctorsDetails/DoctorsDetails';
-import { faPhone } from '@fortawesome/free-solid-svg-icons';
 
-const doctorsData = [
-    {
-        name: 'Dr Suity' ,
-        icon: faPhone,
-        phone: '+13598523',
-        doctorImage: doctorImage1
-    },
-    {
-        name: 'Dr Afroza' ,
-        icon: faPhone,
-        phone: '+65828523',
-        doctorImage: doctorImage2
-    },
-    {
-        name: 'Dr Zinnat' ,
-        icon: faPhone,
-        phone: '+86428523',
-        doctorImage:doctorImage3
-    },
-]
+
 
 const Doctors = () => {
+    const [doctor, setDoctor] = useState([])
+    useEffect(() => {
+        fetch('http://localhost:4000/doctors')
+            .then(res => res.json())
+            .then(data => setDoctor(data))
+    }, [])
+
     return (
         <section className="container my-5">
             <div className="section-header">
@@ -34,7 +18,7 @@ const Doctors = () => {
             </div>
             <div className="row text-center">
                 {
-                    doctorsData.map(data => <DoctorsDetails data={data}> </DoctorsDetails> )
+                    doctor.map(data => <DoctorsDetails key={doctor._id} data={data}> </DoctorsDetails>)
                 }
             </div>
             <hr />

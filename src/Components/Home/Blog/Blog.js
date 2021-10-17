@@ -1,4 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowCircleLeft } from '@fortawesome/free-solid-svg-icons'
 import Wilson from '../../../images/wilson.png';
 import BlogPost from '../BlogPost/BlogPost';
 
@@ -38,6 +41,9 @@ const Blog = () => {
                 {
                     BlogData.map(blog => <BlogPost blog={blog}></BlogPost>)
                 }
+            </div>
+            <div style={{ textAlign: 'center' }}>
+                <Link to="/home"><FontAwesomeIcon icon={faArrowCircleLeft} /> previous page </Link>
             </div>
         </section>
     );

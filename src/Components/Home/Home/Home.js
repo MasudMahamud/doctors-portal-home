@@ -1,13 +1,22 @@
 import React from 'react';
 import Header from '../Header/Header';
+import Services from '../Services/Services';
+import FeaturedService from "../FeaturedService/FeaturedService";
+import MakeAppointment from "../MakeAppointment/MakeAppointment";
+import Testimonials from "../Testimonials/Testimonials";
+import Doctors from "../Doctors/Doctors";
+import Footer from "../../Shared/Footer/Footer";
 
 const Home = () => {
     return (
-        <div>
-            
+        <div>         
             <Header></Header>
-            
-
+            <Services></Services>
+            <FeaturedService></FeaturedService>
+            <MakeAppointment></MakeAppointment>
+            <Testimonials></Testimonials>      
+            <Doctors></Doctors>        
+            <Footer></Footer>     
         </div>
     );
 };
