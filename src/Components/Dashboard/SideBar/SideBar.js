@@ -3,7 +3,7 @@ import './SideBar.css';
 import { Link } from 'react-router-dom';
 import { Nav, Navbar, Container, Offcanvas } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faSignOutAlt, faCalendar, faGripHorizontal,  faUsers } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faSignOutAlt, faCalendar, faGripHorizontal, faHome,  faUsers } from '@fortawesome/free-solid-svg-icons';
 import { UserContext } from '../../../App';
 
 const SideBar = (props) => {
@@ -11,7 +11,7 @@ const SideBar = (props) => {
   const [isDoctor, setIsDoctor] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:4000/isDoctor', {
+    fetch('https://guarded-oasis-04933.herokuapp.com/isDoctor', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: loggedInUser.email })
@@ -37,6 +37,7 @@ const SideBar = (props) => {
             <Offcanvas.Body>
               <Nav className="ps-4"  style={{fontFamily:'auto'}}>
                 <Link to="/dashboard" className="text-dark"><FontAwesomeIcon icon={faGripHorizontal} /> <span>Dashboard</span></Link> <br />
+                <Link to="/home" className="text-dark"><FontAwesomeIcon icon={faHome} /> <span>Home</span></Link> <br />
                 {isDoctor && <div>
                   <Link to="/dashboardAppointments" className="text-dark"><FontAwesomeIcon icon={faCalendar} /> <span>Appointments</span></Link> <br /><br />
                   <Link to="/allPatients" className="text-dark"> <FontAwesomeIcon icon={faUsers} /> <span>Patients</span></Link> <br /><br />

@@ -23,7 +23,7 @@ const Dashboard = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:4000/AppointmentByDate', {
+        fetch('https://guarded-oasis-04933.herokuapp.com/AppointmentByDate', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ date: selectedDate, email: loggedInUser.email })

@@ -24,7 +24,7 @@ const AppointPopUpFrom = ({ modalIsOpen, closeModal, appointmentSub, date }) => 
         data.date = date;
         data.createdAt = new Date();
 
-        fetch('http://localhost:4000/addAppointment',{
+        fetch('https://guarded-oasis-04933.herokuapp.com/addAppointment',{
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
